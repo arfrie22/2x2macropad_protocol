@@ -1,3 +1,5 @@
+#![cfg_attr(not(feature = "std"), no_std)]
+
 pub mod data_protocol;
 pub mod macro_protocol;
 
