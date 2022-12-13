@@ -1,4 +1,5 @@
 use core::mem;
+use core::option::Option;
 
 use packed_struct::prelude::PrimitiveEnum_u8;
 use strum::EnumCount;
