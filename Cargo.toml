@@ -9,3 +9,8 @@ edition = "2021"
 strum_macros = "0.24"
 strum = { version = "0.24", default-features = false, features = ["strum_macros", "derive"] }
 packed_struct = { version = "0.10", default-features = false }
+
+[dev-dependencies]
+strum_macros = "0.24"
+strum = { version = "0.24", default-features = false, features = ["strum_macros", "derive"] }
+packed_struct = { version = "0.10", default-features = false }
