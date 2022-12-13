@@ -28,7 +28,7 @@ mod tests {
         assert_eq!(data_protocol::DataCommand::EnterBootloader as u8, 0xFE);
         assert_eq!(data_protocol::DataCommand::Error as u8, 0xFF);
 
-        assert_eq!(data_protocol::DataCommand::COUNT as u8, 0x0C);
+        assert_eq!(data_protocol::DataCommand::COUNT as u8, 14);
     }
 
     #[test]
