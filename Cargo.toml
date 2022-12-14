@@ -12,8 +12,10 @@ std = []
 strum_macros = "0.24"
 strum = { version = "0.24", default-features = false, features = ["strum_macros", "derive"] }
 packed_struct = { version = "0.10", default-features = false }
+usbd-human-interface-device = "0.3.1"
 
 [dev-dependencies]
 strum_macros = "0.24"
 strum = { version = "0.24", default-features = false, features = ["strum_macros", "derive"] }
 packed_struct = { version = "0.10", default-features = false }
+usbd-human-interface-device = "0.3.1"

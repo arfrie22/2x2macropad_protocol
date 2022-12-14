@@ -2,6 +2,7 @@
 
 pub mod data_protocol;
 pub mod macro_protocol;
+pub mod hid_wrapper;
 
 #[cfg(test)]
 mod tests {
