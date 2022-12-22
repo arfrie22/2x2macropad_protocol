@@ -139,3 +139,27 @@ pub enum LedCommand {
     #[num_enum(default)]
     Error = 0xFF
 }
+
+#[repr(u8)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
+pub enum LedEffect {
+    #[num_enum(default)]
+    None = 0x00,
+    Static = 0x01,
+    Breathing = 0x02,
+    BreathingSpaced = 0x03,
+    ColorCycle = 0x04,
+    Rainbow = 0x05,
+}
