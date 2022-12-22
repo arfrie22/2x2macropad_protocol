@@ -13,7 +13,7 @@ strum_macros = "0.24"
 strum = { version = "0.24", default-features = false, features = ["strum_macros", "derive"] }
 packed_struct = { version = "0.10", default-features = false }
 usbd-human-interface-device = "0.3.1"
-num_enum = "0.5.7"
+num_enum = { version = "0.5.7", default-features = false }
 
 [dev-dependencies]
 strum_macros = "0.24"
