@@ -1,5 +1,5 @@
-use num_enum::{IntoPrimitive, FromPrimitive};
-use packed_struct::prelude::{PrimitiveEnum};
+use num_enum::{IntoPrimitive, TryFromPrimitive};
+use packed_struct::prelude::PrimitiveEnum;
 
 pub const PROTOCOL_VERSION: u16 = 1;
 
@@ -15,10 +15,9 @@ pub const PROTOCOL_VERSION: u16 = 1;
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    FromPrimitive,
+    TryFromPrimitive,
 )]
 pub enum DataCommand {
-    #[num_enum(default)]
     None = 0x00,
     GetProtocolVersion = 0x01,
     ReadMacro = 0x02,
@@ -50,10 +49,9 @@ pub enum DataCommand {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    FromPrimitive,
+    TryFromPrimitive,
 )]
 pub enum ConfigElements {
-    #[num_enum(default)]
     Version = 0x00,
     TapSpeed = 0x01,
     HoldSpeed = 0x02,
@@ -75,10 +73,9 @@ pub enum ConfigElements {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    FromPrimitive,
+    TryFromPrimitive,
 )]
 pub enum KeyConfigElements {
-    #[num_enum(default)]
     KeyMode = 0x00,
     KeyboardData = 0x01,
     ConsumerData = 0x02,
@@ -100,10 +97,9 @@ pub enum KeyConfigElements {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    FromPrimitive,
+    TryFromPrimitive,
 )]
 pub enum KeyMode {
-    #[num_enum(default)]
     MacroMode = 0x00,
     SingleTapMode = 0x01,
     KeyboardMode = 0x02,
@@ -123,10 +119,9 @@ pub enum KeyMode {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    FromPrimitive,
+    TryFromPrimitive,
 )]
 pub enum LedCommand {
-    #[num_enum(default)]
     None = 0x00,
 
     // Single LED Control

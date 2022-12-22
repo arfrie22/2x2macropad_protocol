@@ -1,4 +1,4 @@
-use num_enum::{FromPrimitive, IntoPrimitive};
+use num_enum::{IntoPrimitive, TryFromPrimitive};
 use packed_struct::prelude::PrimitiveEnum;
 
 #[repr(u8)]
@@ -13,10 +13,9 @@ use packed_struct::prelude::PrimitiveEnum;
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    FromPrimitive,
+    TryFromPrimitive,
 )]
 pub enum MacroCommand {
-    #[num_enum(default)]
     CommandTerminator = 0x00,
     CommandDelay = 0x01,
     CommandPressKey = 0x02,
