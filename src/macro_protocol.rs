@@ -1,11 +1,22 @@
-use core::mem;
-use core::option::Option;
-
-use strum::EnumCount;
+use num_enum::{FromPrimitive, IntoPrimitive};
+use packed_struct::prelude::PrimitiveEnum;
 
 #[repr(u8)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumCount)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
 pub enum MacroCommand {
+    #[num_enum(default)]
     CommandTerminator = 0x00,
     CommandDelay = 0x01,
     CommandPressKey = 0x02,
@@ -13,14 +24,4 @@ pub enum MacroCommand {
     CommandConsumer = 0x04,
     CommandSetLed = 0x05,
     CommandClearLed = 0x06,
-}
-
-impl MacroCommand {
-    pub fn from_u8(n: u8) -> Option<MacroCommand> {
-        if n < MacroCommand::COUNT as u8 {
-            Some(unsafe { mem::transmute(n) })
-        } else {
-            None
-        }
-    }
 }

@@ -1,14 +1,24 @@
-use core::mem;
-use core::option::Option;
-
-use packed_struct::prelude::PrimitiveEnum_u8;
-use strum::EnumCount;
+use num_enum::{IntoPrimitive, FromPrimitive};
+use packed_struct::prelude::{PrimitiveEnum};
 
 pub const PROTOCOL_VERSION: u16 = 1;
 
 #[repr(u8)]
-#[derive(Debug, Clone, Copy, EnumCount)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
 pub enum DataCommand {
+    #[num_enum(default)]
     None = 0x00,
     GetProtocolVersion = 0x01,
     ReadMacro = 0x02,
@@ -28,19 +38,22 @@ pub enum DataCommand {
     Error = 0xFF
 }
 
-impl DataCommand {
-    pub fn from_u8(n: u8) -> Option<DataCommand> {
-        if !(DataCommand::COUNT as u8 - 2..0xFE).contains(&n) {
-            Some(unsafe { mem::transmute(n) })
-        } else {
-            None
-        }
-    }
-}
-
 #[repr(u8)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumCount)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
 pub enum ConfigElements {
+    #[num_enum(default)]
     Version = 0x00,
     TapSpeed = 0x01,
     HoldSpeed = 0x02,
@@ -50,19 +63,22 @@ pub enum ConfigElements {
     Error = 0xFF
 }
 
-impl ConfigElements {
-    pub fn from_u8(n: u8) -> Option<ConfigElements> {
-        if n < ConfigElements::COUNT as u8 - 1 || n == 0xFF {
-            Some(unsafe { mem::transmute(n) })
-        } else {
-            None
-        }
-    }
-}
-
 #[repr(u8)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq, EnumCount)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
 pub enum KeyConfigElements {
+    #[num_enum(default)]
     KeyMode = 0x00,
     KeyboardData = 0x01,
     ConsumerData = 0x02,
@@ -72,40 +88,45 @@ pub enum KeyConfigElements {
     Error = 0xFF
 }
 
-impl KeyConfigElements {
-    pub fn from_u8(n: u8) -> Option<KeyConfigElements> {
-        if n < KeyConfigElements::COUNT as u8 - 1 || n == 0xFF {
-            Some(unsafe { mem::transmute(n) })
-        } else {
-            None
-        }
-    }
-}
-
 #[repr(u8)]
-#[derive(PrimitiveEnum_u8, Debug, Clone, Copy, PartialEq, Eq, EnumCount)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
 pub enum KeyMode {
+    #[num_enum(default)]
     MacroMode = 0x00,
     SingleTapMode = 0x01,
     KeyboardMode = 0x02,
     ConsumerMode = 0x03,
 }
 
-impl KeyMode {
-    pub fn from_u8(n: u8) -> Option<KeyMode> {
-        if n < KeyMode::COUNT as u8 {
-            Some(unsafe { mem::transmute(n) })
-        } else {
-            None
-        }
-    }
-}
-
-
 
 #[repr(u8)]
-#[derive(Debug, Clone, Copy)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
 pub enum LedCommand {
+    #[num_enum(default)]
     None = 0x00,
 
     // Single LED Control
@@ -117,15 +138,4 @@ pub enum LedCommand {
 
     //...
     Error = 0xFF
-}
-
-
-impl LedCommand {
-    pub fn from_u8(n: u8) -> Option<LedCommand> {
-        if n <= 0x05 || n == 0xFF {
-            Some(unsafe { mem::transmute(n) })
-        } else {
-            None
-        }
-    }
 }
