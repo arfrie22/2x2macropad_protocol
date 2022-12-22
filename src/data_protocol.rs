@@ -1,4 +1,4 @@
-use num_enum::{IntoPrimitive, TryFromPrimitive};
+use num_enum::{IntoPrimitive, FromPrimitive};
 use packed_struct::prelude::PrimitiveEnum;
 
 pub const PROTOCOL_VERSION: u16 = 1;
@@ -15,7 +15,7 @@ pub const PROTOCOL_VERSION: u16 = 1;
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    TryFromPrimitive,
+    FromPrimitive,
 )]
 pub enum DataCommand {
     None = 0x00,
@@ -34,6 +34,7 @@ pub enum DataCommand {
 
     // Extra commands not included in the count
     EnterBootloader = 0xFE,
+    #[num_enum(default)]
     Error = 0xFF
 }
 
@@ -49,7 +50,7 @@ pub enum DataCommand {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    TryFromPrimitive,
+    FromPrimitive,
 )]
 pub enum ConfigElements {
     Version = 0x00,
@@ -58,6 +59,7 @@ pub enum ConfigElements {
     DefaultDelay = 0x03,
 
     //...
+    #[num_enum(default)]
     Error = 0xFF
 }
 
@@ -73,7 +75,7 @@ pub enum ConfigElements {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    TryFromPrimitive,
+    FromPrimitive,
 )]
 pub enum KeyConfigElements {
     KeyMode = 0x00,
@@ -82,6 +84,7 @@ pub enum KeyConfigElements {
     KeyColor = 0x03,
 
     //...
+    #[num_enum(default)]
     Error = 0xFF
 }
 
@@ -97,9 +100,10 @@ pub enum KeyConfigElements {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    TryFromPrimitive,
+    FromPrimitive,
 )]
 pub enum KeyMode {
+    #[num_enum(default)]
     MacroMode = 0x00,
     SingleTapMode = 0x01,
     KeyboardMode = 0x02,
@@ -119,7 +123,7 @@ pub enum KeyMode {
     PrimitiveEnum,
     Hash,
     IntoPrimitive,
-    TryFromPrimitive,
+    FromPrimitive,
 )]
 pub enum LedCommand {
     None = 0x00,
@@ -132,5 +136,6 @@ pub enum LedCommand {
     EffectOffset = 0x05,
 
     //...
+    #[num_enum(default)]
     Error = 0xFF
 }
