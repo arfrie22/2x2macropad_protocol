@@ -132,7 +132,7 @@ pub enum LedCommand {
     BaseColor = 0x01,
     Effect = 0x02,
     Brightness = 0x03,
-    EffectSpeed = 0x04,
+    EffectPeriod = 0x04,
     EffectOffset = 0x05,
 
     //...
