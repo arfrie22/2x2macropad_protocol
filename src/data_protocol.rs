@@ -163,3 +163,17 @@ pub enum LedEffect {
     ColorCycle = 0x04,
     Rainbow = 0x05,
 }
+
+#[cfg(feature = "std")]
+impl std::fmt::Display for LedEffect {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        match self {
+            LedEffect::None => write!(f, "None"),
+            LedEffect::Static => write!(f, "Static"),
+            LedEffect::Breathing => write!(f, "Breathing"),
+            LedEffect::BreathingSpaced => write!(f, "Breathing Spaced"),
+            LedEffect::ColorCycle => write!(f, "Color Cycle"),
+            LedEffect::Rainbow => write!(f, "Rainbow"),
+        }
+    }
+}
