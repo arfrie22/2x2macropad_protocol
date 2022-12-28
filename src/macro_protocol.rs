@@ -46,4 +46,7 @@ pub enum MacroSectionAnnotation {
     None = 0x00,
     String = 0x01,
     Chord = 0x02,
+    LoopBegin = 0x03,
+    LoopIteration = 0x04,
+    LoopEnd = 0x05,
 }
