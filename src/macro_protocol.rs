@@ -44,9 +44,10 @@ pub enum MacroCommand {
 pub enum MacroSectionAnnotation {
     #[num_enum(default)]
     None = 0x00,
-    String = 0x01,
-    Chord = 0x02,
-    LoopBegin = 0x03,
-    LoopIteration = 0x04,
-    LoopEnd = 0x05,
+    KeyPress = 0x01,
+    String = 0x02,
+    Chord = 0x03,
+    LoopBegin = 0x04,
+    LoopIteration = 0x05,
+    LoopEnd = 0x06,
 }
