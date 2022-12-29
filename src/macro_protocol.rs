@@ -23,8 +23,9 @@ pub enum MacroCommand {
     CommandPressKey = 0x03,
     CommandReleaseKey = 0x04,
     CommandConsumer = 0x05,
-    CommandSetLed = 0x06,
-    CommandClearLed = 0x07,
+    CommandReleaseConsumer = 0x06,
+    CommandSetLed = 0x07,
+    CommandClearLed = 0x08,
 }
 
 #[repr(u8)]
