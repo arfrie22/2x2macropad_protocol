@@ -56,7 +56,6 @@ pub enum ConfigElements {
     Version = 0x00,
     TapSpeed = 0x01,
     HoldSpeed = 0x02,
-    DefaultDelay = 0x03,
 
     //...
     #[num_enum(default)]
