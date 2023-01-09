@@ -33,7 +33,7 @@ pub enum DataCommand {
 
 
     // Extra commands not included in the count
-    GetBuildVersion = 0xFD,
+    GetBuildInfo = 0xFD,
     EnterBootloader = 0xFE,
     #[num_enum(default)]
     Error = 0xFF
