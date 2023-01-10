@@ -53,12 +53,12 @@ pub enum DataCommand {
     FromPrimitive,
 )]
 pub enum BuildInfoElements {
-    Version = 0x00,
+    FirmwareVersion = 0x00,
     BuildDate = 0x01,
-    BuildTime = 0x02,
-    GitHash = 0x03,
-    GitBranch = 0x04,
-    BuildType = 0x05,
+    BuildTimestamp = 0x02,
+    BuildProfile = 0x03,
+    GitHash = 0x04,
+    GitBranch = 0x05,
     GitSemver = 0x06,
 
     //...
