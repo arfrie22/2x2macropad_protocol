@@ -30,11 +30,38 @@ pub enum DataCommand {
     SetLed = 0x09,
     ReadKeyConfig = 0x0A,
     WriteKeyConfig = 0x0B,
-
+    GetBuildInfo = 0x0C,
 
     // Extra commands not included in the count
-    GetBuildInfo = 0xFD,
     EnterBootloader = 0xFE,
+    #[num_enum(default)]
+    Error = 0xFF
+}
+
+#[repr(u8)]
+#[derive(
+    Debug,
+    Copy,
+    Clone,
+    Eq,
+    PartialEq,
+    Ord,
+    PartialOrd,
+    PrimitiveEnum,
+    Hash,
+    IntoPrimitive,
+    FromPrimitive,
+)]
+pub enum BuildInfoElements {
+    Version = 0x00,
+    BuildDate = 0x01,
+    BuildTime = 0x02,
+    GitHash = 0x03,
+    GitBranch = 0x04,
+    BuildType = 0x05,
+    GitSemver = 0x06,
+
+    //...
     #[num_enum(default)]
     Error = 0xFF
 }
