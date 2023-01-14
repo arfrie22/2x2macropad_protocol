@@ -1,6 +1,9 @@
 use num_enum::{IntoPrimitive, FromPrimitive};
 use packed_struct::prelude::PrimitiveEnum;
 
+#[cfg(feature = "multi_versioned")]
+use multi_version::MultiVersion;
+
 pub const PROTOCOL_VERSION: u16 = 1;
 
 #[repr(u8)]
@@ -17,6 +20,7 @@ pub const PROTOCOL_VERSION: u16 = 1;
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum DataCommand {
     None = 0x00,
     GetProtocolVersion = 0x01,
@@ -52,6 +56,7 @@ pub enum DataCommand {
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum BuildInfoElements {
     FirmwareVersion = 0x00,
     BuildDate = 0x01,
@@ -80,6 +85,7 @@ pub enum BuildInfoElements {
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum ConfigElements {
     Version = 0x00,
     TapSpeed = 0x01,
@@ -104,6 +110,7 @@ pub enum ConfigElements {
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum KeyConfigElements {
     KeyMode = 0x00,
     KeyboardData = 0x01,
@@ -129,6 +136,7 @@ pub enum KeyConfigElements {
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum KeyMode {
     #[num_enum(default)]
     MacroMode = 0x00,
@@ -152,6 +160,7 @@ pub enum KeyMode {
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum LedCommand {
     None = 0x00,
 
@@ -181,6 +190,7 @@ pub enum LedCommand {
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum LedEffect {
     #[num_enum(default)]
     None = 0x00,

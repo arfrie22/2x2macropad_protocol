@@ -1,6 +1,9 @@
 use num_enum::{FromPrimitive, IntoPrimitive};
 use packed_struct::prelude::PrimitiveEnum;
 
+#[cfg(feature = "multi_versioned")]
+use multi_version::MultiVersion;
+
 #[repr(u8)]
 #[derive(
     Debug,
@@ -15,6 +18,7 @@ use packed_struct::prelude::PrimitiveEnum;
     IntoPrimitive,
     FromPrimitive,
 )]
+#[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum MacroCommand {
     #[num_enum(default)]
     Empty = 0x00,
