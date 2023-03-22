@@ -4,8 +4,6 @@ use packed_struct::prelude::PrimitiveEnum;
 #[cfg(feature = "multi_versioned")]
 use multi_version::MultiVersion;
 
-pub const PROTOCOL_VERSION: u16 = 1;
-
 #[repr(u8)]
 #[derive(
     Debug,
@@ -23,7 +21,7 @@ pub const PROTOCOL_VERSION: u16 = 1;
 #[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum DataCommand {
     None = 0x00,
-    GetProtocolVersion = 0x01,
+    GetBuildVersion = 0x01,
     ReadMacro = 0x02,
     WriteMacro = 0x03,
     ClearMacro = 0x04,
