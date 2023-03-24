@@ -85,9 +85,8 @@ pub enum BuildInfoElements {
 )]
 #[cfg_attr(feature = "multi_versioned", derive(MultiVersion))]
 pub enum ConfigElements {
-    Version = 0x00,
-    TapSpeed = 0x01,
-    HoldSpeed = 0x02,
+    TapSpeed = 0x00,
+    HoldSpeed = 0x01,
 
     //...
     #[num_enum(default)]
